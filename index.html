@@ -38,11 +38,10 @@
 
       <div class="collapse navbar-collapse" id="navMenu">
         <ul class="navbar-nav ms-auto">
-          <li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
-          <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
-          <li class="nav-item"><a class="nav-link" href="#products">Products</a></li>
-          <li class="nav-item"><a class="nav-link" href="#why">Why Us</a></li>
-          <li class="nav-item"><a class="nav-link" href="#Contact">Contact</a></li>
+          <li class="nav-item"><a class="nav-link" href="./index.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="./about.html">About</a></li>
+          <li class="nav-item"><a class="nav-link" href="./allproduct.html">All shop Products</a></li>
+          <li class="nav-item"><a class="nav-link" href="./contact.html">Contact</a></li>
         </ul>
       </div>
     </div>
@@ -88,6 +87,8 @@
             <img src="./images/download (2).jfif" class="img-fluid mb-3 rounded" height="10" alt="Premium Atta">
             <h5>Talbina</h5>
             <p>Healthy nutrition for families</p>
+            <button class="add-cart-btn" onclick="openCartModal('Talbina', 1.5)">
+   Order Now🛒
           </div>
         </div>
         <div class="col-md-4">
@@ -95,6 +96,8 @@
             <img src="./images/download (1).jfif" class="img-fluid mb-3 rounded" alt="Wheat Flour">
             <h5>Pure Honey</h5>
             <p>Fresh & hygienic wheat flour</p>
+            <button class="add-cart-btn" onclick="openCartModal('Talbina', 1.5)">
+   Order Now🛒
           </div>
         </div>
         <div class="col-md-4">
@@ -103,10 +106,13 @@
               alt="Organic Grains">
             <h5>Premium Dates</h5>
             <p>Pure and natural grains</p>
+            <button class="add-cart-btn" onclick="openCartModal('Talbina', 1.5)">
+   Order Now🛒
           </div>
         </div>
       </div>
     </div>
+
     <div id="gallery">
       <div class="container mt-5">
         <div class="row align-items-center justify-content-center">
@@ -126,6 +132,22 @@
       </div>
     </div>
   </section>
+  <script>
+function openCartModal(name, price){
+  document.getElementById("cartModal").style.display = "flex";
+  document.getElementById("productName").innerText = name;
+  document.getElementById("productPrice").innerText = price;
+}
+
+function closeCartModal(){
+  document.getElementById("cartModal").style.display = "none";
+}
+
+function addToCart(){
+  alert("Product added to cart ✅");
+  closeCartModal();
+}
+</script>
   <!-- Why Us -->
   <section id="why">
     <div class="container">
@@ -236,6 +258,20 @@
       </div>
     </div>
   </footer>
+  <div class="cart-modal" id="cartModal">
+  <div class="cart-box">
+    <h2 id="productName"></h2>
+    <p>Price: Pkr 2200<span id="productPrice"></span></p>
+
+    <label>Quantity</label>
+    <input type="number" value="1" min="1">
+
+    <div class="actions">
+      <button onclick="addToCart()">Add to Cart</button>
+      <button class="close" onclick="closeCartModal()">Cancel</button>
+    </div>
+  </div>
+</div>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 </body>
